@@ -19,6 +19,7 @@ namespace tpmodul3_1302204090
 			addKodePos(40272, new string[] { "Kebonwaru" });
 			addKodePos(40273, new string[] { "Samoja" });
 			addKodePos(40274, new string[] { "Maleer" });
+
 		}
 
 		public void addKodePos(int kode, string[] arrayKelurahan)
@@ -48,6 +49,34 @@ namespace tpmodul3_1302204090
 		public List<string> getKodePos(int kode)
 		{
 			return kodePos.GetValueOrDefault(kode, null);
+		}
+
+		public void printKodePos(int kode)
+		{
+			List<string> vs = getKodePos(kode);
+
+			System.Console.WriteLine("Kode pos " + kode + " :");
+
+			if (vs == null)
+			{
+				System.Console.WriteLine("Tidak ditemukan kelurahan!");
+			}
+			else
+			{
+				if (vs.Count == 0)
+				{
+					System.Console.WriteLine("Tidak ditemukan kelurahan!");
+				}
+				else
+				{
+					foreach (var item in vs)
+					{
+						System.Console.WriteLine(item);
+					}
+				}
+			}
+
+			System.Console.WriteLine(" ");
 		}
 	}
 
